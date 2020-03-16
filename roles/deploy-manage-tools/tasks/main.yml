@@ -1,0 +1,13 @@
+---
+- file: path=/jupyter/admin/admin_tools state=directory
+- file: path=/jupyter/admin/tools state=directory
+
+- copy: src=admin-tools/ dest=/jupyter/admin/admin_tools/
+- copy: src=tools/ dest=/jupyter/admin/tools/
+- copy: src=common/ dest=/jupyter/admin/admin_tools/
+- copy: src=common/ dest=/jupyter/admin/tools/
+
+- file: path=/jupyter/admin/tools/notebook-diff mode=a+x
+  ignore_errors: "{{ ansible_check_mode }}"
+- file: path=/jupyter/admin/admin_tools/notebook-diff mode=a+x
+  ignore_errors: "{{ ansible_check_mode }}"

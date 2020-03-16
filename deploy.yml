@@ -1,0 +1,5 @@
+---
+- become: true
+  hosts: ch-master
+  roles:
+    - deploy-manage-tools
